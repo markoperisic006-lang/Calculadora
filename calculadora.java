@@ -1,3 +1,5 @@
+package Calculadora;
+
 import java.util.Scanner;
 
 class Calculadora {
@@ -18,8 +20,17 @@ class Calculadora {
     }
 
     public double dividir(int a, int b) {
-        double resultado = (double) a / b;
-        return resultado;
+        if (b == 0) {
+            System.out.println("Error: No se puede dividir por cero.");
+            return 0;
+        }
+        try {
+            double resultado = (double) a / b;
+            return resultado;
+        } catch (ArithmeticException e) {
+            System.out.println("Ha ocurrió un error aritmético vuelve a intentarlo  .");
+            return 0;
+        }
     }
 
     public int potencia(int a, int b) {
